@@ -1,6 +1,5 @@
-  
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -8,17 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="static/css/style.css">
 </head>
-      
+
 <body>
     <div class="wrapper">
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">UFO Sightings
-                    <img class="nav-ufo" src="ufo.svg">
-                    </a>
+
+                    <a class="navbar-brand" href="../UFO-level-1/index.html">UFO Sightings
+            <img class="nav-ufo" src="static/images/alien.svg">
+          </a>
                 </div>
             </div>
         </nav>
@@ -26,62 +26,74 @@
             <h1>UFO Sightings</h1>
             <p>The Truth is Out There</p>
         </div>
+        <!-- <embed src="static/music/The X Files theme.mp3" loop="true" autostart="true" width="2" height="0"> -->
         <div class="container">
             <div class="row margin-top-50">
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <h4>Search Table</h4>
-                        <ul class="list-group" id="filters">
-                            <li class="filter list-group-item">
-                              <label for="date">Enter a Date</label>
-                              <input class="form-control" id="datetime" type="text" placeholder="1/11/2011">
-                            </li>
-                            <li class="filter list-group-item">
-                                <label for="state">Enter a state</label>
-                                <input class="form-control" id="state" type="text" placeholder="ca">
-                              </li>
-                              <li class="filter list-group-item">
-                                <label for="city">Enter a city</label>
-                                <input class="form-control" id="city" type="text" placeholder="bonita">
-                              </li>
-                              <li class="filter list-group-item">
-                                <label for="country">Enter a Country</label>
-                                <input class="form-control" id="country" type="text" placeholder="us">
-                              </li>
-                              <li class="filter list-group-item">
-                                <label for="shape">Enter a Shape</label>
-                                <input class="form-control" id="shape" type="text" placeholder="light">
-                              </li>
-                          </ul>
-                        <button id="filter-btn" type="button" class="btn btn-default">Filter Table</button>
-                        <a id="reset" class="btn btn-default" onClick="window.location.reload()">Reset Table</a>
-                    </div>                  
+                <div class="col-md-2">
+                    <aside class="filters">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Filter Search</div>
+                            <div class="panel-body">
+                                <form id="form">
+                                    <div class="form-group">
+                                        <ul class="list-group" id="filters">
+                                            <li class="filter list-group-item">
+                                                <label for="date">Enter a Date</label>
+                                                <input class="form-control" id="datetime" type="text" placeholder="1/11/2011">
+                                            </li>
+                                            <li class="filter list-group-item">
+                                                <label for="state">Enter a state</label>
+                                                <input class="form-control" id="state" type="text" placeholder="ca">
+                                            </li>
+                                            <li class="filter list-group-item">
+                                                <label for="city">Enter a city</label>
+                                                <input class="form-control" id="city" type="text" placeholder="bonita">
+                                            </li>
+                                            <li class="filter list-group-item">
+                                                <label for="country">Enter a Country</label>
+                                                <input class="form-control" id="country" type="text" placeholder="us">
+                                            </li>
+                                            <li class="filter list-group-item">
+                                                <label for="shape">Enter a Shape</label>
+                                                <input class="form-control" id="shape" type="text" placeholder="light">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <button id="filter-btn" type="button" class="btn btn-default">Filter Table</button>
+                                    <a id="reset" class="btn btn-default" onClick="window.location.reload()">Reset Table</a>
+                                </form>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+                <div class="col-md-10">
+                    <div id="table-area" class="table">
+                        <table id="ufo-table" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="table-head">Date</th>
+                                    <th class="table-head">City</th>
+                                    <th class="table-head">State</th>
+                                    <th class="table-head">Country</th>
+                                    <th class="table-head">Shape</th>
+                                    <th class="table-head">Duration</th>
+                                    <th class="table-head">Comments</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th class="table-head">Date</th>
-                                <th class="table-head">City</th>
-                                <th class="table-head">State</th>
-                                <th class="table-head">Country</th>
-                                <th class="table-head">Shape</th>
-                                <th class="table-head">Duration</th>
-                                <th class="table-head">Comments</th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
-            </div>
-            <footer class="footer">
-                <span class="bottom">UFO Sightings</span>
-            </footer>              
         </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
-        <script src="static/js/data.js" type="text/javascript"></script>
-        <script src="static/js/app.js" type="text/javascript"></script>  
+        <footer class="footer">
+            <span class="bottom">UFO Sightings</span>
+            <div>Icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+    <script src="static/js/data.js"></script>
+    <script src="static/js/app.js"></script>
 </body>
+
 </html>
